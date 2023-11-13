@@ -1,4 +1,5 @@
-"""import Enum"""
+"""import Enum and DataClass"""
+from dataclasses import dataclass
 from enum import Enum
 
 
@@ -10,15 +11,14 @@ class Type(Enum):
     GUM = 4
 
 
+@dataclass
 class Candy:
     """class Candy"""
-    def __init__(self, name, mass, amount, price, tp):
-        """init attributes"""
-        self.name = name
-        self.mass = mass
-        self.amount = amount
-        self.price = price
-        self.type = tp
+    name: str
+    mass: int
+    amount: int
+    price: float
+    type: Type
 
     def ate(self):
         """eating"""
