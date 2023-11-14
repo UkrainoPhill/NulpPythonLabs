@@ -13,6 +13,13 @@ def sample_candies():
     return [candy1, candy2, candy3, candy4]
 
 
+def test_ate():
+    """negative testing"""
+    candy = Candy(name="Snickers", mass=19990, amount=1, price=1.5, type=Type.BAR)
+    result = candy.ate()
+    assert result == "You’re on a diet!"
+
+
 def test_ate_function():
     """eating candies"""
     candy = Candy("Test Candy", 100, 3, 1.0, Type.BAR)
@@ -40,21 +47,3 @@ def test_find_the_most_by_amount(sample_candies_test):
     dinner_amount = Dinner("Wednesday", "19:30", sample_candies_test)
     most_amount_candy = dinner_amount.find_the_most("amount")
     assert most_amount_candy.name == "Bubble Gum"
-
-
-candies = [
-    Candy("Chocolate bar", 100000000, 10, 10, Type.BAR),
-    Candy("Gummy bear", 50, 27, 14, Type.GUM),
-    Candy("Popcorn", 100, 10, 2, Type.POPCORN),
-    Candy("Button", 10, 100, 1, Type.BUTTON),
-]
-
-dinner = Dinner("Monday", "12:00", candies)
-
-print(dinner)
-print(dinner.find_the_most("amount"))
-print(dinner.find_the_most_expensive_candies())
-
-print(candies[0].ate())
-print(candies[1].ate())
-print(candies[2].ate())
